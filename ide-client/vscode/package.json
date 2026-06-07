@@ -1,0 +1,19 @@
+{
+  "name": "optic-vscode",
+  "displayName": "Optic IDE Client",
+  "publisher": "optic",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": ["onCommand:optic.open"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "optic.open",
+        "title": "Open Optic Pipeline"
+      }
+    ]
+  }
+}

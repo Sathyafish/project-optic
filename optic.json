@@ -1,0 +1,28 @@
+{
+  "optic_pipeline": {
+    "name": "Secure-Python-DB-Flow",
+    "stages": [
+      {
+        "stage": 1,
+        "name": "Code Generation",
+        "provider": "nvidia_nim",
+        "model": "meta/llama-3.1-70b-instruct",
+        "context_strategy": "raw_prompt"
+      },
+      {
+        "stage": 2,
+        "name": "Linter & Logic Review",
+        "provider": "minimax",
+        "model": "minimax-abab6.5",
+        "context_strategy": "previous_stage_only"
+      },
+      {
+        "stage": 3,
+        "name": "Security Gatekeeper",
+        "provider": "anthropic",
+        "model": "claude-4.7-opus",
+        "context_strategy": "aggregate_all_history"
+      }
+    ]
+  }
+}

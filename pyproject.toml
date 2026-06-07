@@ -1,0 +1,13 @@
+[project]
+name = "optic"
+version = "0.1.0"
+description = "Minimal Optic scaffold: config loader and CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+optic = "optic.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
