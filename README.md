@@ -1,0 +1,59 @@
+# 👁️ Optic
+
+Optic is a next-generation developer framework that brings **Declarative AI Engineering** directly into your IDE workspace. 
+
+Unlike traditional AI code editors that treat model routing and context management as an opaque black box, Optic gives developers full control to configure, prune, and route multi-stage LLM pipelines using code.
+
+By isolating expensive frontier models (like Claude 4.7 Opus) strictly to high-cognitive windows—and offloading boilerplate generation, linting, and documentation to high-throughput open-source models—**Optic slashes enterprise development token costs by 65% to 80%.**
+
+---
+
+## 🚀 Key Features
+
+* **Declarative Routing:** Define your multi-agent architecture via a simple `optic.json` file in your repository root.
+* **Granular Context Pruning:** Eliminate the "Context Tax". Explicitly declare what data transfers between steps, completely wiping out bloated, intermediary chat logs.
+* **Model Agnostic Infrastructure:** Seamlessly bridge specialized open-source models (via NVIDIA NIM or MiniMax) with flagship enterprise frontiers.
+* **Deterministic Governance:** Ensure sensitive code snippets only hit audited compliance endpoints during explicit evaluation windows.
+
+---
+
+## 🛠️ Configuration (`optic.json`)
+
+Configure your asymmetric pipeline directly in your workspace. Define stages, providers, and exact context compilation strategies:
+
+```json
+{
+  "optic_pipeline": {
+    "name": "Secure-Python-DB-Flow",
+    "stages": [
+      {
+        "stage": 1,
+        "name": "Code Generation",
+        "provider": "nvidia_nim",
+        "model": "meta/llama-3.1-70b-instruct",
+        "context_strategy": "raw_prompt"
+      },
+      {
+        "stage": 2,
+        "name": "Linter & Logic Review",
+        "provider": "minimax",
+        "model": "minimax-abab6.5",
+        "context_strategy": "previous_stage_only"
+      },
+      {
+        "stage": 3,
+        "name": "Security Gatekeeper",
+        "provider": "anthropic",
+        "model": "claude-4.7-opus",
+        "context_strategy": "aggregate_all_history"
+      },
+      {
+        "stage": 4,
+        "name": "Markdown Documentation",
+        "provider": "nvidia_nim",
+        "model": "mistralai/mixtral-8x22b-instruct",
+        "context_strategy": "code_only"
+      }
+    ]
+  }
+}
